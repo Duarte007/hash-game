@@ -22,51 +22,26 @@ public class Program{
     }
 
     public static Boolean hasWinner(string[,] field){
-        int a = 0;
-        int b = 0;
-        int da = 0;
-        int db = 0;
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-
-                if (field[i, j] == " x "){
-                    a++;
-                }
-                else if (field[i, j] == " o "){
-                    b++;
-                }
-
-                if (i == j) {
-                    if (field[i, j] == " x "){
-                        da++;
-                    }
-                    else if (field[i, j] == " o "){
-                        db++;
-                    }
-                }
-            }
-
-            if (a == 3){
-                Console.WriteLine("Congratulations 'player x', you won!");
+        
+        for(int i = 0 ; i < 3 ; i++){
+            if(field[i,0] == " x " && field[i,1] == " x " && field[i,2] == " x "){
+                return true;
+            } else if (field[i,0] == " o " && field[i,1] == " o " && field[i,2] == " o "){
+                return true;
+            } else if(field[0,i] == " x " && field[1,i] == " x " && field[2,i] == " x "){
+                return true;
+            } else if (field[0,i] == " o " && field[1,i] == " o " && field[2,i] == " o "){
                 return true;
             }
-            else if (b == 3){
-                Console.WriteLine("Congratulations 'player y' , you won!");
-                return true;
-            }
-            else{
-                a = 0;
-                b = 0;
-            }
         }
-        if (da == 3){
-            Console.WriteLine("Congratulations 'player x', you won!");
+
+       
+        if(field[0,0] == " x " && field[1,1] == " x " && field[2,2] == " x "){
+            return true;
+        } else if (field[0,0] == " o " && field[1,1] == " o " && field[2,2] == " o "){
             return true;
         }
-        else if (db == 3){
-            Console.WriteLine("Congratulations 'player y', you won!");
-            return true;
-        }
+       
 
         return false;
     }
@@ -82,6 +57,7 @@ public class Program{
 
         string[,] field = new string[3, 3];
         int count = 0;
+        string currentPlayer;
 
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
@@ -93,7 +69,8 @@ public class Program{
 
         do{
             if (count % 2 == 0){
-                Console.WriteLine("Player x:");
+                currentPlayer = "Player x";
+                Console.WriteLine(currentPlayer+":");
                 makeMove();
 
                 if (blockedPlay(field)){
@@ -107,7 +84,8 @@ public class Program{
                 }
             }
             else{
-                Console.WriteLine("Player o:");
+                currentPlayer = "Player o";
+                Console.WriteLine(currentPlayer+":");
                 makeMove();
 
                 if (blockedPlay(field)){
@@ -121,6 +99,7 @@ public class Program{
                 }
             }
             if (hasWinner(field)){
+                 Console.WriteLine("Congratulations '"+currentPlayer+"', you won!");
                 break;
             }
         } while (count < 9);
