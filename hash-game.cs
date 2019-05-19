@@ -4,11 +4,29 @@ public class Program{
 
     private static int x = 0, y = 0;
 
-    public static void makeMove(){
-        Console.WriteLine("Row: ");
-        x = int.Parse(Console.ReadLine()) - 1;
-        Console.WriteLine("Column: ");
-        y = int.Parse(Console.ReadLine()) - 1;
+    public static void makeMove(Boolean begin){
+		if(begin){
+			try{	
+				do{
+					Console.WriteLine("Row: ");
+					x = int.Parse(Console.ReadLine()) - 1;			
+				}while (x > 2 || x < 0);
+			}catch (System.FormatException error){
+				Console.WriteLine("Digite apenas numeros.");
+				makeMove(true);
+			}
+		}
+		
+		try{
+			do{
+				Console.WriteLine("Column: ");
+				y = int.Parse(Console.ReadLine()) - 1;
+				Console.WriteLine("Y: "+y);
+			}while (y > 2 || y < 0);
+		}catch (System.FormatException error){
+			Console.WriteLine("Digite apenas numeros.");
+			makeMove(false);
+		}
     }
 
     public static void showHash(string[,] field){
@@ -75,7 +93,7 @@ public class Program{
             if (count % 2 == 0){
                 currentPlayer = "Player x";
                 Console.WriteLine(currentPlayer+":");
-                makeMove();
+                makeMove(true);
 
                 if (blockedPlay(field)){
                     Console.WriteLine("Invalid play, position already filled.");
@@ -90,7 +108,7 @@ public class Program{
             else{
                 currentPlayer = "Player o";
                 Console.WriteLine(currentPlayer+":");
-                makeMove();
+                makeMove(true);
 
                 if (blockedPlay(field)){
                     Console.WriteLine("Invalid play, position already filled.");
@@ -107,5 +125,7 @@ public class Program{
                 break;
             }
         } while (count < 9);
+        if(count == 9)
+            Console.WriteLine("Hash!");
     }
 }
