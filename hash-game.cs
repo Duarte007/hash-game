@@ -21,7 +21,6 @@ public class Program{
 			do{
 				Console.WriteLine("Column: ");
 				y = int.Parse(Console.ReadLine()) - 1;
-				Console.WriteLine("Y: "+y);
 			}while (y > 2 || y < 0);
 		}catch (System.FormatException error){
 			Console.WriteLine("Digite apenas numeros.");
