@@ -1,32 +1,31 @@
 using System;
-
 public class Program{
 
     private static int x = 0, y = 0;
 
-    public static void makeMove(Boolean begin){
-		if(begin){
-			try{	
-				do{
-					Console.WriteLine("Row: ");
-					x = int.Parse(Console.ReadLine()) - 1;			
-				}while (x > 2 || x < 0);
-			}catch (System.FormatException error){
-				Console.WriteLine("Digite apenas numeros.");
-				makeMove(true);
-			}
-		}
-		
-		try{
+    public static void makeMoveRow(){
+		try{	
 			do{
-				Console.WriteLine("Column: ");
-				y = int.Parse(Console.ReadLine()) - 1;
-			}while (y > 2 || y < 0);
+				Console.WriteLine("Row: ");
+				x = int.Parse(Console.ReadLine()) - 1;			
+			}while (x > 2 || x < 0);
 		}catch (System.FormatException error){
-			Console.WriteLine("Digite apenas numeros.");
-			makeMove(false);
+			Console.WriteLine("Digite apenas valores aceitos. (1, 2 ou 3)");
+			makeMoveRow();
 		}
     }
+	
+	public static void makeMoveColumn(){
+	try{
+		do{
+			Console.WriteLine("Column: ");
+			y = int.Parse(Console.ReadLine()) - 1;
+		}while (y > 2 || y < 0);
+	}catch (System.FormatException error){
+			Console.WriteLine("Digite apenas valores aceitos. (1, 2 ou 3)");
+			makeMoveColumn();
+		}
+	}
 
     public static void showHash(string[,] field){
         Console.WriteLine("Hash Game!");
@@ -92,7 +91,8 @@ public class Program{
             if (count % 2 == 0){
                 currentPlayer = "Player x";
                 Console.WriteLine(currentPlayer+":");
-                makeMove(true);
+                makeMoveRow();
+				makeMoveColumn();
 
                 if (blockedPlay(field)){
                     Console.WriteLine("Invalid play, position already filled.");
@@ -107,7 +107,8 @@ public class Program{
             else{
                 currentPlayer = "Player o";
                 Console.WriteLine(currentPlayer+":");
-                makeMove(true);
+                makeMoveRow();
+				makeMoveColumn();
 
                 if (blockedPlay(field)){
                     Console.WriteLine("Invalid play, position already filled.");
