@@ -1,0 +1,11 @@
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.csprojAssemblyReference.cache
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.csproj.CoreCompileInputs.cache
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.AssemblyInfoInputs.cache
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.AssemblyInfo.cs
+D:\Projetos Programação\jogo-da-velha\hash-game\bin\Debug\netcoreapp2.1\hash-game.deps.json
+D:\Projetos Programação\jogo-da-velha\hash-game\bin\Debug\netcoreapp2.1\hash-game.runtimeconfig.json
+D:\Projetos Programação\jogo-da-velha\hash-game\bin\Debug\netcoreapp2.1\hash-game.runtimeconfig.dev.json
+D:\Projetos Programação\jogo-da-velha\hash-game\bin\Debug\netcoreapp2.1\hash-game.dll
+D:\Projetos Programação\jogo-da-velha\hash-game\bin\Debug\netcoreapp2.1\hash-game.pdb
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.dll
+D:\Projetos Programação\jogo-da-velha\hash-game\obj\Debug\netcoreapp2.1\hash-game.pdb
